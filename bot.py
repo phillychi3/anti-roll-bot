@@ -17,7 +17,10 @@ chrome_options=Options()
 chrome_options.add_argument('--headless')
 chrome_options.add_argument("--disable-notifications")
 browser = webdriver.Chrome('./chromedriver.exe', chrome_options=chrome_options)
-rolllink=["https://youtu.be/dQw4w9WgXcQ","https://www.youtube.com/watch?v=dQw4w9WgXcQ"]
+rolllinklist=["https://youtu.be/dQw4w9WgXcQ","https://www.youtube.com/watch?v=dQw4w9WgXcQ"]
+
+with open('set.json', 'r', encoding='utf8') as jfile:
+	jdata = json.load(jfile)
 
 @bot.event
 async def on_ready():
@@ -34,21 +37,22 @@ async def on_message(msg):
     rolllink=msg.content[0:4]
     rollid=msg.id
     if rolllink=="http": 
-        if rolllink in rolllink:
+        if rolltest in rolllinklist:
             await msg.channel.send("警告 辨識結果為rick roll")
             de = await msg.channel.fetch_message(rollid)
             await de.delete()
         else:
-            browser.get(req_url)
-            asyncio.sleep(5)
+            browser.get(rolltest)
+            await asyncio.sleep(5)
+            #sleep(5)
             webroll=browser.current_url        
             browser.close()
             browser.quit()
-            if webroll in rolllink:
+            if webroll in rolllinklist:
                 await msg.channel.send("警告 辨識結果為rick roll")
                 de = await msg.channel.fetch_message(rollid)
                 await de.delete()
 
 
 
-bot.run('ODcwMjU1OTg5MDE2ODk5NjI2.YQKHDA.mh4YWvFbz6BVUcdX1bHGb8rPbrg')
+bot.run('ODcwMjU1OTg5MDE2ODk5NjI2.YQKHDA.tD5z4I17ne3vTigsn24PbaTpD4A')
