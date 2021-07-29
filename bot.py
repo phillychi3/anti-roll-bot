@@ -54,5 +54,4 @@ async def on_message(msg):
                 await de.delete()
 
 
-
-bot.run('ODcwMjU1OTg5MDE2ODk5NjI2.YQKHDA.tD5z4I17ne3vTigsn24PbaTpD4A')
+bot.run(jdata['TOKEN'])
