@@ -1,10 +1,7 @@
 import discord
 from discord.ext import commands
 import json
-import random
 import asyncio
-from hentai import Hentai, Format
-from covid import Covid
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from time import sleep
@@ -52,6 +49,4 @@ async def on_message(msg):
                 await msg.channel.send("警告 辨識結果為rick roll")
                 de = await msg.channel.fetch_message(rollid)
                 await de.delete()
-
-
 bot.run(jdata['TOKEN'])
